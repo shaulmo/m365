@@ -1,0 +1,26 @@
+Install-Module -Name ExchangeOnlineManagement -RequiredVersion 2.0.5 // To install module
+
+Import-Module ExchangeOnlineManagement // To import the module
+
+
+MFA ExchangeOnline PS-Session: (With Global Administrator Account)
+Connect-ExchangeOnline -UserPrincipalName $USER
+
+
+// Simplified Permission cmdlet: (alex is the calendar we want to get permission to, -User $USERGIVEN would get the permissions)
+
+Add-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor
+Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags 
+Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems
+
+// ReadOnly Permissions:
+Add-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Reviewer 
+
+// Checking permissions:
+Get-MailboxFolderPermission alex:\calendar
+
+// SharingPermission Remove, Editors Right Stays:
+Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags None
+
+// Remove all permission to user:
+Remove-MailboxFolderPermission alex:\calendar -User $USERGIVEN
