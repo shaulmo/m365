@@ -10,7 +10,7 @@ Connect-ExchangeOnline -UserPrincipalName $USER
 // Simplified Permission cmdlet: (alex is the calendar we want to get permission to, -User $USERGIVEN would get the permissions)
 
 Add-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor
-Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags 
+Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags Delegate
 Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems
 
 // ReadOnly Permissions:
