@@ -19,7 +19,7 @@ Add-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Review
 // Checking permissions:
 Get-MailboxFolderPermission alex:\calendar
 
-// SharingPermission Remove, Editors Right Stays:
+// SharingPermission Remove, Editors Rights Stays:
 Set-MailboxFolderPermission alex:\calendar -User $USERGIVEN -AccessRights Editor -SharingPermissionFlags None
 
 // Remove all permission to user:
