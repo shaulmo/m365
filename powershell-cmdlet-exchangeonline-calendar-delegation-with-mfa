@@ -3,7 +3,7 @@ Install-Module -Name ExchangeOnlineManagement -RequiredVersion 2.0.5 // To insta
 Import-Module ExchangeOnlineManagement // To import the module
 
 
-MFA ExchangeOnline PS-Session: (With Global Administrator Account)
+// MFA ExchangeOnline PS-Session: (With Global Administrator Account)
 Connect-ExchangeOnline -UserPrincipalName $USER
 
 
